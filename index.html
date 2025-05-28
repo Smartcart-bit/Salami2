@@ -8,17 +8,31 @@
 <body>
   <div class="container">
     <h1 class="eid-title">🎉 Eid Salami 🎉</h1>
-    
+
     <p><strong>From:</strong> <span id="sender">...</span></p>
     <p><strong>To:</strong> <span id="receiver">...</span></p>
-    <p><strong>Amount:</strong> <span id="amount">...</span> Taka</p>
-    
-    <div id="quote" class="quote">Loading quote...</div>
 
+    <div id="amount-section">
+      <button onclick="revealAmount()">🎁 Click to reveal your Salami!</button>
+      <p id="amount" style="display: none;"><strong>Amount:</strong> <span id="amountValue"></span> Taka</p>
+    </div>
+
+    <div id="quote" class="quote">Loading quote...</div>
     <div class="animation">💸💫 Eid Mubarak! 💫💸</div>
 
-    <!-- Share section -->
-    <div class="share-box">
+    <!-- Share Buttons -->
+    <div class="share-buttons">
+      <h3>Share this Salami</h3>
+      <a id="waLink" target="_blank">📱 Share on WhatsApp</a>
+      <a id="msLink" target="_blank">💬 Share on Messenger</a>
+    </div>
+
+    <!-- Hidden Send Section -->
+    <div class="send-toggle">
+      <button onclick="toggleSend()">🎁 Do you want to give someone?</button>
+    </div>
+
+    <div id="sendSection" style="display: none;" class="share-box">
       <h3>Send Salami to Someone Else</h3>
       <input type="text" id="newSender" placeholder="Your Name">
       <input type="text" id="newReceiver" placeholder="Receiver's Name">
