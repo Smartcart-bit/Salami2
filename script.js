@@ -1,26 +1,32 @@
-// Sample motivational quotes
+// Get query parameters
+const urlParams = new URLSearchParams(window.location.search);
+document.getElementById("sender").innerText = urlParams.get("sender") || "Anonymous";
+document.getElementById("receiver").innerText = urlParams.get("receiver") || "Friend";
+document.getElementById("amount").innerText = urlParams.get("amount") || "0";
+
+// Motivational quotes
 const quotes = [
-    "May Allah bless you with endless joy!",
-    "Eid Mubarak! May your life be filled with prosperity!",
-    "Your kindness shines brighter than the Eid moon!",
-    "May this Eid bring peace and happiness!",
-    "Spread love and joy this Eid!"
+  "Eid is a day to cheer and to laugh with all your heart!",
+  "Give generously, smile widely, and celebrate fully!",
+  "A kind heart always gives the best salami!",
+  "Joy shared is joy doubled — Happy Eid!",
+  "Even fake salami brings real smiles!",
+  "Let your kindness shine brighter than your Eidi!"
 ];
+const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+document.getElementById("quote").innerText = randomQuote;
 
-// Send Eid Salami via WhatsApp
-function sendSalami() {
-    const sender = document.getElementById('sender').value || "Anonymous";
-    const receiver = document.getElementById('receiver').value || "Friend";
-    const amount = document.getElementById('amount').value || "0";
-    const customMessage = document.getElementById('customMessage').value || quotes[Math.floor(Math.random() * quotes.length)];
-    
-    const whatsappMessage = `🎉 Eid Salami Alert! 🎉\nFrom: ${sender}\nTo: ${receiver}\nAmount: ${amount} 💸\nMessage: ${customMessage}\nEnjoy your special Eid moment!`;
+// Generate custom link
+function generateLink() {
+  const sender = document.getElementById("newSender").value.trim();
+  const receiver = document.getElementById("newReceiver").value.trim();
+  const amount = document.getElementById("newAmount").value.trim();
 
-    const whatsappLink = `https://api.whatsapp.com/send?text=${encodeURIComponent(whatsappMessage)}`;
-    window.open(whatsappLink, '_blank');
+  if (sender && receiver && amount) {
+    const baseURL = window.location.origin + window.location.pathname;
+    const link = `${baseURL}?sender=${encodeURIComponent(sender)}&receiver=${encodeURIComponent(receiver)}&amount=${encodeURIComponent(amount)}`;
+    document.getElementById("generatedLink").innerText = link;
+  } else {
+    document.getElementById("generatedLink").innerText = "Please fill in all fields.";
+  }
 }
-
-// Click animation effect
-document.getElementById('joy-animation').addEventListener('click', function() {
-    this.classList.add('animation:active');
-});
