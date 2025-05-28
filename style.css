@@ -1,50 +1,85 @@
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #f7e7ce;
+  font-family: Arial, sans-serif;
+  background: #fffaf0;
+  color: #333;
+  text-align: center;
+  padding: 20px;
 }
 
 .container {
-    margin-top: 50px;
-    padding: 20px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+  max-width: 600px;
+  margin: auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
 }
 
-input, textarea {
-    width: 80%;
-    padding: 8px;
-    margin: 5px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+.eid-title {
+  color: #e67e22;
+  font-size: 2em;
 }
 
-button {
-    padding: 10px 15px;
-    font-size: 16px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.quote {
+  margin: 20px 0;
+  font-style: italic;
+  font-size: 1.1em;
+  color: #00695c;
 }
 
 .animation {
-    font-size: 30px;
-    margin-top: 20px;
-    animation: joyAnimation 1.5s infinite;
-    cursor: pointer;
+  margin: 20px 0;
+  font-size: 2em;
+  animation: float 1.5s ease-in-out infinite;
 }
 
-@keyframes joyAnimation {
-    0% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.2); opacity: 0.8; }
-    100% { transform: scale(1); opacity: 1; }
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
 }
 
 .builder {
-    font-size: 12px;
-    margin-top: 20px;
-    opacity: 0.7;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  font-size: 12px;
+  color: #777;
+}
+
+/* Share Box */
+.share-box {
+  margin-top: 30px;
+  border-top: 1px solid #ccc;
+  padding-top: 20px;
+}
+
+.share-box input {
+  padding: 8px;
+  margin: 5px;
+  width: 80%;
+  max-width: 300px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.share-box button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  background: #2ecc71;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.share-box button:hover {
+  background: #27ae60;
+}
+
+.generated-link {
+  margin-top: 10px;
+  word-break: break-all;
+  font-size: 0.9em;
+  color: #2980b9;
 }
