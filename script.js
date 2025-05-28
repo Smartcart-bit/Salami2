@@ -7,19 +7,13 @@ const quotes = [
     "Spread love and joy this Eid!"
 ];
 
-// Extract URL parameters
-const urlParams = new URLSearchParams(window.location.search);
-document.getElementById('sender').textContent = urlParams.get('sender') || "Anonymous";
-document.getElementById('receiver').textContent = urlParams.get('receiver') || "Friend";
-document.getElementById('amount').textContent = urlParams.get('amount') || "0";
-document.getElementById('quote').textContent = quotes[Math.floor(Math.random() * quotes.length)];
-
 // Send Eid Salami via WhatsApp
 function sendSalami() {
-    const sender = urlParams.get('sender') || "Anonymous";
-    const receiver = urlParams.get('receiver') || "Friend";
-    const amount = urlParams.get('amount') || "0";
-    const customMessage = document.getElementById('customMessage').value || "Eid Mubarak!";
+    const sender = document.getElementById('sender').value || "Anonymous";
+    const receiver = document.getElementById('receiver').value || "Friend";
+    const amount = document.getElementById('amount').value || "0";
+    const customMessage = document.getElementById('customMessage').value || quotes[Math.floor(Math.random() * quotes.length)];
+    
     const whatsappMessage = `🎉 Eid Salami Alert! 🎉\nFrom: ${sender}\nTo: ${receiver}\nAmount: ${amount} 💸\nMessage: ${customMessage}\nEnjoy your special Eid moment!`;
 
     const whatsappLink = `https://api.whatsapp.com/send?text=${encodeURIComponent(whatsappMessage)}`;
